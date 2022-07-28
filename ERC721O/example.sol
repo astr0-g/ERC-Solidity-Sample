@@ -35,7 +35,12 @@ contract example is ERC721O, Ownable, ReentrancyGuard {
     constructor() ERC721O("example", "ex") {
         setUriSuffix(".json");
     }
-
+    
+    modifier CIU() {
+        require(tx.origin == msg.sender, "The caller is another contract");
+        _;
+    }
+    
     function WhiteListMint(uint256 numberOfTokens) external payable nonReentrant {
         uint256 StartTime = uint256(ListMintStartTime);
         uint256 totalS = totalSupply();
