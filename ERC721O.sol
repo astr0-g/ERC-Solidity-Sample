@@ -227,7 +227,7 @@ IERC721Metadata
         }
     }
     
-	function _beforeTokenTransfer(
+    function _beforeTokenTransfer(
         address from,
         address to,
         uint256 tokenId
